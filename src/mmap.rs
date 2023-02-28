@@ -270,6 +270,7 @@ impl<B: Bitmap> Bytes<MemoryRegionAddress> for GuestRegionMmap<B> {
         F: Read,
     {
         let maddr = addr.raw_value() as usize;
+        println!("mmap.rs::read_from()");
         self.as_volatile_slice()
             .unwrap()
             .read_from::<F>(maddr, src, count)
